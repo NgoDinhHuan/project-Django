@@ -1,0 +1,244 @@
+{% extends "header1.html" %}
+{% block detail2 %}
+{% load static %}
+
+<section class="content-home">
+    <div class="archive tax-product_cat term-ic-chuc-nang term-45 woocommerce woocommerce-page">
+        <div class="container">
+            <div class="row">
+                <div class="content-top">
+                    <div id="content" class="col-sm-12 col-xs-12 col-md-9 col-md-push-3 cate-all-child">
+                        <div class="title-cate-all">
+                            <div class="pos-link">
+                                <div id="crumbs" class="breadcrumb">
+                                                                                                            <span>
+                                            <a class="crumbs-home" href="/">
+                                                <i class="fa fa-home"></i> Trang chủ</a>
+                                        </span>
+                                    <i class="fa fa-angle-double-right"></i>
+                                    <span class="current">MÁY PHÁT ĐIỆN CHO THUÊ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont-news-detail-page">
+                            <h1 class="single_title">MÁY PHÁT ĐIỆN CHO THUÊ</h1>
+                            <div class="cont-cate-all">
+                                <div class="">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group input-group input-group-sm">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group input-group input-group-sm">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="products">{% for index in old %}
+                                        <div class="list-slider-fashion col-xs-6 col-md-4">
+                                            <div class="product-block">
+                                                <a href="/sanpham/{{index.slug}}/"
+                                                   title="{{index.title}}">
+                                                    <img src="/{{index.category_image}}">
+                                                </a>
+                                                <h2>
+                                                    <a href="/sanpham/{{index.slug}}/"
+                                                       title="Máy phát điện KOMATSU 400KVA">{{index.category_name}}</a>
+                                                </h2>
+                                                <ins>
+                                                    <span class="amount">Liên hệ</span>
+                                                </ins>
+                                                <span class="xmpt  hidden-xs hidden-sm">
+
+                                                    <a rel="nofollow"
+                                                       href="/contact/"
+                                                       title="{{index.title}}" >Thuê ngay</a>
+                                                        <a rel="nofollow" href="/sanpham/{{index.slug}}/"
+                                                           title="{{index.title}}">Xem</a>
+                                                    </span>
+
+                                            </div>
+
+                                        </div>
+
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="panigation-page col-xs-12">
+                                        <nav class="woocommerce-pagination">
+                                            <ul class="pagination">
+                                                {% for index in page %}
+                                                    {% if old.number == index %}
+                                                        <li class="active"><span>{{index}}</span></li>
+                                                    {% else %}
+                                                        <li>
+                                                            <a href="/phatdiencu/?page={{index}}">{{index}}</a>
+                                                        </li>
+                                                    {%endif%}
+                                                {% endfor %}
+                                                <li>
+                                                    <a href="page=2">&gt;</a>
+                                                </li>
+
+
+                                            </ul>
+
+                                        </nav>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-home col-sm-12 col-xs-12 col-md-3 sidebar sidebar-home clearfix col-md-pull-9">
+                        <aside id="column-left" class="left-column compliance">
+                            <div class="menu-sidebar " id="product_category-1">
+                                <h6>Danh mục</h6>
+                                <div class="menu-linh-kien-dien-tu-container">
+                                    <ul id="slectmenu-1" class="menusanpham">
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380 current-menu-item">
+                                            <a href="/phatdienthue/">MÁY PHÁT ĐIỆN CHO THUÊ</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380 ">
+                                            <a href="/phatdiencu/">MÁY PHÁT ĐIỆN CŨ</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380 ">
+                                            <a href="/phatdienmoi/">MÁY PHÁT ĐIỆN MỚI</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu-sidebar " id="fillter-0">
+                                <h6>Lọc sản phẩm</h6>
+                                <form name="filter_form" method="post" action="/"
+                                      class="menu-linh-kien-dien-tu-container fillter_fprm">
+                                    <ul id="slectmenu-0" class="menusanpham">
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-2380">
+                                            <a>Thương hiệu</a>
+                                            <ul class="sub-menu level1" id="filter-group-price">
+                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2426">
+                                                    <a href="javascript:void(0)" class="checkbox">
+                                                        <input type="checkbox" name="manufacturer[]" value="11"
+                                                               onclick="loadFilter()">
+                                                        Trung Quốc </a>
+                                                </li>
+                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2426">
+                                                    <a href="javascript:void(0)" class="checkbox">
+                                                        <input type="checkbox" name="manufacturer[]" value="12"
+                                                               onclick="loadFilter()">
+                                                        Malaysia </a>
+                                                </li>
+                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2426">
+                                                    <a href="javascript:void(0)" class="checkbox">
+                                                        <input type="checkbox" name="manufacturer[]" value="13"
+                                                               onclick="loadFilter()">
+                                                        Anh </a>
+                                                </li>
+                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2426">
+                                                    <a href="javascript:void(0)" class="checkbox">
+                                                        <input type="checkbox" name="manufacturer[]" value="14"
+                                                               onclick="loadFilter()">
+                                                        Italy </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-2380 hidden">
+                                            <button type="button" id="button-filter" class="btn btn-primary"></button>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+
+
+                            <div class="group">
+
+                                  <input class="form-control" id="from_price" class="from-control" placeholder="Giá Bắt Đầu..."/>
+                                   <input class="form-control" id="to_price" class="from-control" placeholder="Giá Kết Thúc..."/>
+
+
+                            </div>
+                            <button class="btn-sm btn-danger" onclick="find()">Tìm Kiếm</button>
+                            <script type="text/javascript">
+
+    var global_path=[]
+    function loadFilter() {
+        var arr = [];
+        var manufacturer = [];
+        var url = '/phatdiencu/?';
+        var price = $('input[name^=\'price\']:checked').val();
+        if(price != null){
+            arr.push('price_filter=' + price);
+
+        }
+
+
+        $('input[name^=\'manufacturer\']:checked').each(function(element) {
+            manufacturer.push(this.value);
+        });
+
+        if(manufacturer.length != 0){
+            arr.push('manufacturer_filter=' + manufacturer.join(','));
+        }
+
+        var option = [];
+        $('input[name^=\'option\']:checked').each(function(element) {
+            option.push(this.value);
+        });
+
+        if(option.length != 0){
+            arr.push('option_filter=' + option.join(','));
+        }
+
+        if(arr.length > 0) {
+            var path = arr.join( );
+            global_path=path
+            //location = (url.indexOf('?') >= 0) ? url  + path : url + '?' + path;
+            console.log(path)
+
+        }
+    }
+
+function find(){
+
+    var url = '/phatdienthue/?';
+
+    var price = 'price_filter';
+    var from_price = document.getElementById("from_price").value;
+    var to_price = document.getElementById("to_price").value;
+    var path = global_path + '&' + 'price1=' + from_price + '&' + 'price2='+to_price;
+    console.log(from_price);
+    location = (url.indexOf('?') >= 0) ? url  + path : url + '?';
+
+}
+
+
+                            </script>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+    $(document).ready(function(){
+        var html = '<a href="javascript:void(0)"'+
+            ' target="_self" class="">'+
+            '   <img src="" alt="" class="payment-foo" />'+
+            '</a>';
+
+        $('footer .footer-left .paygate-footer').append(html);
+    });
+
+
+        </script>
+    </div>
+</section>
+
+
+
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--<div id="login-form">-->
+
+<!--    <h3>Login</h3>-->
+<!--    <form method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        <div class="form-item">-->
+<!--            <label for="inputEmail" >Email address</label>-->
+<!--            <input id="inputEmail" name="Username">-->
+<!--        </div>-->
+<!--        <div class="form-item">-->
+<!--            <label for="inputPassword" >Password</label>-->
+<!--            <input id="inputPassword"type="password" name="Password"/>-->
+<!--        </div>-->
+
+<!--        <input type="hidden" name="next" value=/>-->
+<!--        <div class="btn-wrap">-->
+<!--            <button type="submit" id="login">Đăng Nhập</button>-->
+<!--            <button type="submit" id="id="register" ">Đăng Nhập</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--    </div>-->
+  <div id="login-form">
+  <h3>Login</h3>
+        <form method="POST">
+            {% csrf_token %}
+             {{error_message}}
+              <input type="text" name="Username" placeholder="Username"/>
+              <br>
+              <input type="hidden" name="next" value=/>
+              <input type="password" name="Password" placeholder="Password" />
+              <br>
+              <input type="submit" id="login" value="Login" />
+              <input type="button" id="register" value="Register" onclick="location.href='/register/'">
+        </form>
+<!--  />-->
+</div>
+<style>
+
+</body>
+
+
+
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Prosto+One);
+
+*
+{
+  -webkit-transition: all 0.3s ease;
+}
+
+body
+{
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Prosto One', cursive;
+  background: url('https://subtlepatterns.com/patterns/egg_shell.png');
+  _background: #eee;
+}
+
+#login-form
+{
+  color: #777;
+  border: 0px solid #afafaf;
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 120px;
+  text-align: center;
+  padding: 40px;
+  padding-top: 20px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 8px #777;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+input
+{
+  color: #777;
+  font-weight: bold;
+  width: 70%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+input[type="button"],input[type="submit"]
+{
+  color: white;
+  width: 30%;
+  border: 0px solid transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+#login
+{
+  background: #51AC74;
+}
+
+#register
+{
+  background: #5C8AE6;
+}
+
+.form-item {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.btn-wrap {
+
+}
+</style>

@@ -1,0 +1,62 @@
+{% extends "header1.html" %}
+{% block detail2 %}
+{% load static %}
+
+<section class="content-home">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12" id="content">
+                <form method="post" action="javascript:void(0)" name="checkout_form" id="checkout_form"
+                    enctype="multipart/form-data" class="form-horizontal">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i> Tìm kiếm đợn đặt hàng
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <!-- Apply for VN -->
+                                <div class="form-group required">
+                                    <label class="control-label col-md-4" for="input-firstname">Nhập Mã Đơn Đặt
+                                        Hàng</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="order" id="input-order" value=""
+                                            placeholder="Ví dụ: 89269" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="submit" value="Tìm" id="button-voucher" data-loading-text="Tìm"
+                                            class="btn btn-primary" onclick="find()">
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated %}
+                                <label style="color: red">Đơn Hàng:</label>
+                                {%for order in order_code%}
+                                <a href="/dathang/{{order.payment_code}}/">{{order.payment_code}}</a>
+                                {%endfor%}
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function find() {
+
+        var x;
+        x = document.getElementById("input-order").value;
+        window.location.href = '/dathang/' + x + '/';
+    }
+</script>
+
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

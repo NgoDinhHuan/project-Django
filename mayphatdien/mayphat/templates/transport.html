@@ -1,0 +1,59 @@
+{% extends "header1.html" %}
+{% block detail_transport %}
+{% load static %}
+
+<section class="content-home">
+    <div class="container">
+        <div class="row">
+            <div class="content-top">
+                <div id="content" class="col-sm-12 col-xs-12 col-md-9 col-md-push-3 news-detail-page">
+                    <div class="title-cate-all">
+                        <div class="pos-link">
+                            <div id="crumbs" class="breadcrumb">
+                                <span>
+                                            <a class="crumbs-home" href="/">
+                                                <i class="fa fa-home"></i> Trang chủ</a>
+                                        </span>
+                                <i class="fa fa-angle-double-right"></i>
+                                <span class="current">Quy trình vận chuyển</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-news-detail-page">{% for post in ship %}
+                        <h1 class="single_title">{{post.title|safe}}</h1>
+                        <div class="post_page"><h1 class="single_title">{{post.content|safe}}</h1>
+                            <div class="post_page">
+                                <div class="page-header">
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="sidebar-home col-sm-12 col-xs-12 col-md-3 sidebar sidebar-home clearfix col-md-pull-9">
+                    <aside id="column-left" class="left-column compliance">
+                        <div class="menu-sidebar " id="news_category-0">
+                            <h6>Danh mục tin tức </h6>
+                            <div class="menu-linh-kien-dien-tu-container">
+                                <ul id="news_slectmenu-0" class="menusanpham">
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380">
+                                        <a href="/transport/">Máy phát điện BP</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section> <!-- end .content-home -->
+
+
+
+</script>
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

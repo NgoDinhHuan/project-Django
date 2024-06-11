@@ -1,0 +1,159 @@
+{% extends "header.html" %}
+{% block slide %}
+{% include "slide.html" %}
+{% endblock %}
+{% block detail %}
+{% load static %}
+<section class="content-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="box-fashion col-xs-12 " id="product_category-2">
+                        <div class="title-section">
+                            <a class="title_link_a" title="Sản phẩm mới nhất" href="javascript:void(0)">Sản phẩm mới
+                                nhất</a>
+                        </div>
+                        <div class="tab-fashion">
+                            <div class="link-cat" role="tablist">
+                                <a href="/phatdienmoi/" role="tab"
+                                   data-toggle="tab" class="active">{{index}} MÁY PHÁT ĐIỆN MỚI</a>
+
+
+                            </div>
+                            <div class="tab-fashion-cont tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="cateogry-20">
+                                    <div class="slider-fashion slick-initialized slick-slider">
+                                        <div class="slick-list draggable" tabindex="0">
+                                            <div class="slick-track">{% for index in new %}
+                                                <div class="list-slider-fashion col-xs-6 col-md-3 slick-slide slick-active"
+                                                     index="0" style="width: 285px; height: 320px">
+                                                    <div class="product-block">
+                                                        <a href="/sanpham/{{index.slug}}/"
+                                                           title="{{index.title}}">
+                                                            <img src="/{{index.category_image}}">
+                                                        </a>
+                                                        <h2>
+                                                            <a href="/sanpham/{{index.slug}}/"
+                                                               title="{{index.title}}">{{index.category_name}}</a>
+                                                        </h2>
+                                                        <ins>
+                                                            <span class="amount">Liên hệ</span>
+                                                        </ins>
+                                                        <span class="xmpt  hidden-xs hidden-sm">
+        <a rel="nofollow" href="javascript:void(0)"
+           title="{{index.title}}" onclick="gotoCart('{{index.id}}')">Mua ngay</a>
+                <a rel="nofollow" href="/sanpham/{{index.slug}}/"
+                   title="{{index.title}}">Xem</a>
+    </span>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- noi bat-->
+
+                    <div class="box-fashion col-xs-12 " id="product_category-3">
+                        <div class="title-section">
+                            <a class="title_link_a" title="Danh mục sản phẩm nổi bật" href="javascript:void(0)">Danh mục
+                                sản phẩm nổi bật</a>
+                        </div>
+                        <div class="tab-fashion">
+                            <div class="link-cat" role="tablist">
+                                <a href="/phatdienmoi/"role="tab"
+                                   data-toggle="tab" class="active">{{index}}MÁY PHÁT ĐIỆN MỚI</a>
+                                <a href="/phatdiencu/"role="tab"
+                                   data-toggle="tab" >{{index}}MÁY PHÁT ĐIỆN CŨ</a>
+                            </div>
+                            <div class="tab-fashion-cont tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="cateogry-30">
+                                    <div class="slider-fashion slick-initialized slick-slider">
+                                        <div class="slick-list draggable" tabindex="0">
+                                            <div class="slick-track">{% for index in outstanding %}
+                                                <div class="list-slider-fashion col-xs-6 col-md-3 slick-slide slick-active"
+                                                     index="0" style="width: 285px; height: 320px;">
+                                                    <div class="product-block">
+                                                        <a title="{{index.title}}">
+                                                            <img src="/{{index.category_image}}">
+                                                        </a>
+                                                        <h2>
+                                                            <a title="{{index.title}}">{{index.category_name}}</a>
+                                                        </h2>
+                                                        <ins>
+                                                            <span class="amount">Liên hệ</span>
+                                                        </ins>
+                                                        <span class="xmpt  hidden-xs hidden-sm">
+        <a rel="nofollow" href="javascript:void(0)"
+           title="{{index.title}}" onclick="gotoCart('{{index.id}}');">Mua ngay</a>
+                <a rel="nofollow" href="/sanpham/{{index.slug}}/"
+                   title="{{index.title}}">Xem</a>
+    </span>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="tab-fashion-cont tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="cateogry-30">
+                                    <div class="slider-fashion slick-initialized slick-slider">
+                                        <div class="slick-list draggable" tabindex="0">
+                                            <div class="slick-track">{% for index in outstanding_old %}
+                                                <div class="list-slider-fashion col-xs-6 col-md-3 slick-slide slick-active"
+                                                     index="0" style="width: 285px; height: 320px;">
+                                                    <div class="product-block">
+                                                        <a title="{{index.title}}">
+                                                            <img src="/{{index.category_image}}">
+                                                        </a>
+                                                        <h2>
+                                                            <a title="{{index.title}}">{{index.category_name}}</a>
+                                                        </h2>
+                                                        <ins>
+                                                            <span class="amount">Liên hệ</span>
+                                                        </ins>
+                                                        <span class="xmpt  hidden-xs hidden-sm">
+        <a rel="nofollow" href="javascript:void(0)"
+           title="{{index.title}}" onclick="gotoCart('{{index.id}}');">Mua ngay</a>
+                <a rel="nofollow" href="/sanpham/{{index.slug}}/"
+                   title="{{index.title}}">Xem</a>
+    </span>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {% for inc in banner %}
+                    <div class="col-xs-12 col-md-4">
+                        <div class="banner-home banner_custom_1_3 " id="banner_custom-0">
+                            <a title="{{index.title}}"
+                               href="javascript:void(0)" target="_self">
+                                <img src="/{{inc.image_slide}}">
+                            </a></div>
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- end .content-home -->
+
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}
+

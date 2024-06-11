@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>xin chào, đây là web dashboard</h1>
+<p>hello word</p>
+
+ <input type="hidden" name="next" value=/>
+        <div class="btn-wrap">
+            <a href="/logout" target="self">logout</a>
+
+        </div>
+<body>
+    {% if request.user.is_authenticated %}
+        <p>Username -->  {{ request.user.username }}</p>
+    {% else %}
+        <p>chua dang nhap :</p>
+    {% endif %}
+</body>
+</body>
+</html>
+<style>
+#logout
+{
+  background: #51AC74;
+}
+
+#register
+{
+  background: #5C8AE6;
+}
+
+.form-item {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.btn-wrap {
+
+}</style>

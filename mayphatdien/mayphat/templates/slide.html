@@ -1,0 +1,60 @@
+{% load static %}
+{% load  define_acction %}
+{% get_slide as get_slide %}
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'mayphat/css/wap.css'%}">
+<div class="carousel-inner">
+    <div class="item active{{slide.image_slide}}">
+        {% for inc in get_slide%}
+        <img class="mySlides" src="/{{inc.image_slide }}">
+        {% endfor %}
+
+        <a class="left carousel-control" href="#carousel-slider-home-0" role="button" data-slide="prev">
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    </a>
+        <a class="right carousel-control" href="#carousel-slider-home-0" role="button" data-slide="next">
+         <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </a>
+
+    </div>
+</div>
+
+</a>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+
+
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 5000); // thay doi hinh sau 5s
+}
+
+
+</script>

@@ -1,0 +1,340 @@
+{% extends "header1.html" %}
+{% block detail_product %}
+{% load static %}
+
+<div class="container">
+    <div class="detail-page col-xs-12">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12 cont-detail" id="content">
+                <div id="container">
+                    <div id="content" role="main">
+                        <nav class="woocommerce-breadcrumb">
+                            <a class="crumbs-home" href="/">
+                                <i class="fa fa-home"></i> Trang chủ</a>
+                            <i class="fa fa-angle-double-right"></i>
+                            <a class="crumbs-home" href="/sanpham/{{item.slug}}/">
+                                Sản phẩm</a>
+                            <i class="fa fa-angle-double-right"></i>
+                            <span class="current">MÁY PHÁT ĐIỆN CHO THUÊ</span>
+                        </nav>
+                        <div class="post-2443 product type-product status-publish has-post-thumbnail product_cat-camera-mo-phong-phu-kien product_tag-10-led-hong-ngoai-8mm-camera sale shipping-taxable purchasable product-type-simple product-cat-camera-mo-phong-phu-kien product-tag-10-led-hong-ngoai-8mm-camera instock">
+                            <div class="col-xs-12 col-md-6">
+                                {%for item in sanpham%}
+                                <div class="images">
+                                    <a class="woocommerce-main-image zoom"
+                                       data-rel="prettyPhoto[product-gallery]"
+                                       href="/{{item.category_image}}"
+                                       title="{{item.category_name}}">
+                                        <img alt="{{item.category_name}}"
+                                             class="attachment-shop_single size-shop_single wp-post-image"
+                                             height="600"
+                                             src="/{{item.category_image}}"
+                                             title=""
+                                             width="600">
+                                    </a>
+                                    {% endfor %}
+
+                                </div>
+
+                              <div class="row">
+                                        <div class="">
+                                            <div class="ol-md-4">
+                                                <div class="slider autoplay">
+                                                    {% for slide in image %}
+                                                    <div class="item">
+                                                         <a class="woocommerce-main-image zoom" data-rel="prettyPhoto[product-gallery]" href="/{{slide.image_product}}">
+                                                             <img id="image{{slide.id}}" src="/{{slide.image_product}}" class="attachment-shop_thumbnail size-shop_thumbnail"></a>
+                                                    </div>
+                                                    {% endfor%}
+                                                </div>
+                                            </div>
+                                        </div>
+                              </div>
+
+                            </div>
+                            <div class="info-detail col-xs-12 col-md-6">
+                                <h1 class="product_title entry-title">{{tieude}}</h1>
+                                <div class="share-prod">
+                                    <p>
+                                        {% for i in "12345" %}
+                                             {% if i|floatformat:"0"  <= countstart|floatformat:"0"  %}
+                                                <i class="fa fa-star"></i>
+                                             {% else %}
+                                                <i class="fa fa-star-o"></i>
+                                             {% endif %}
+                                        {% endfor %}
+
+                                        ({{countstart}} đánh giá)
+                                    </p>
+
+                                    <style type="text/css">
+    .social-buttons {
+        display: block;
+        width: 100%;
+    }
+    .social-buttons a {
+        display: inline-block;
+        border-radius: 5px;
+    }
+
+                                    </style>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                    </li>
+                                    <li>
+                                        <p class="stt-prod "><i class="fa fa-check"></i>
+                                            <span>Còn trong kho</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <div class="col-xs-12 col-md-12">
+                                    <div>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <div class="price-prod">
+                                                    <p class="price">
+                                                        <ins>
+                                                            <span class="amount">Giá: {{price}}</span>
+                                                        </ins>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="description-prod">
+                                    <div>
+                                        <p></p>
+                                        <table class="table table-responsive table-bordered" dir="ltr"
+                                               width="544">
+                                            <tbody>
+                                            {{detail|safe}}
+                                        </table>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div id="product">
+                                    <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2443">
+                                        <div class="yith-wcwl-add-button show" style="display:block">
+                                            <a class="add_to_wishlist" href="javascript:void(0)"
+                                               onclick="wishlist.add(&#39;306&#39;);">
+                                                <i class="fa fa-heart"></i> Thêm vào yêu thích</a>
+                                        </div>
+                                        <div style="clear:both"></div>
+                                        <div class="yith-wcwl-wishlistaddresponse"></div>
+                                    </div>
+                                    <a class="compare" href="javascript:void(0)"
+                                       onclick="compare.add(&#39;306&#39;);">
+                                        <i class="fa fa-exchange"></i> So sánh sản phẩm</a>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-quantity">Số lượng</label>
+                                        <input class="form-control" disabled id="input-quantity"
+                                               name="quantity"
+                                               size="2" type="text" value="1">
+                                        <input name="product_id" type="hidden" value="306">
+                                        <br>
+                                        <button class="btn btn-datmua" data-loading-text="Đang tải..."
+                                                id="button-cart" onclick="gotoCart('{{id}}');" type="button">Thêm
+                                            vào giỏ
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product_meta">
+                                    <span class="tagged_as">Từ khóa:
+                                        <a href="/">máy phát điện</a>,
+                                        <a href="/maymoi/">mua bán</a>,
+                                        <a href="/maychothue/">cho thuê</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="info-des-detail col-xs-12">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab"
+                                           href="#tab-description">Mô tả</a>
+                                    </li>
+
+                                    <li>
+                                        <a data-toggle="tab" href="#tab-review">Đánh
+                                            giá ({{countstart}})</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-description">
+                                        <table class="table table-responsive table-bordered" dir="ltr"
+                                               width="544">
+                                            <tbody>
+                                            {{mota|safe}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="tab-pane" id="tab-review">
+                                        <form class="form-horizontal" id="form-review">
+
+                                            <div class="col-sm-11">
+                                                {%for d in danhgia%}
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <strong>{{d.name}}</strong> -
+                                                        <span class="text-muted"></span>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        {% for i in "12345" %}
+                                                             {% if i|floatformat:"0"  <= d.rating|floatformat:"0"  %}
+                                                                <span class="fa fa-stack">
+-                                                                   <i class="fa fa-star fa-stack-2x"></i>
+                                                                    <i class="fa fa-star-o fa-stack-2x"></i>
+                                                                </span>
+                                                             {% else %}
+                                                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                                             {% endif %}
+                                                        {% endfor %}
+
+                                                        <br>
+                                                        {{d.text}}
+                                                    </div><!-- /panel-body -->
+                                                </div><!-- /panel panel-default -->
+                                                {%endfor%}
+                                            </div>
+                                            <h3 class="title-form-review">Viết đánh giá</h3>
+                                            <p id="alert_log"></p>
+                                            <div class="form-group required">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label" for="input-name">Họ
+                                                        tên</label>
+                                                    <input class="form-control" id="input-name" name="name"
+                                                           type="text"
+                                                           value="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label" for="input-review">Nội dung
+                                                        đánh giá</label>
+                                                    <textarea class="form-control" id="input-review"
+                                                              name="text"
+                                                              rows="5"></textarea>
+                                                    <div class="help-block"><span
+                                                            class="text-danger">Chú ý:</span> Không sử dụng
+                                                        các định dạng HTML!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">Xếp hạng</label>
+                                                    &nbsp;&nbsp;&nbsp; Chưa tốt&nbsp;
+                                                    <input name="rating" type="radio" value="1">
+                                                    &nbsp;
+                                                    <input name="rating" type="radio" value="2">
+                                                    &nbsp;
+                                                    <input name="rating" type="radio" value="3">
+                                                    &nbsp;
+                                                    <input name="rating" type="radio" value="4">
+                                                    &nbsp;
+                                                    <input name="rating" type="radio" value="5">
+                                                    &nbsp;Tốt
+                                                </div>
+                                            </div>
+                                            <div class="buttons clearfix">
+                                                <div class="pull-right">
+                                                    <button class="btn btn-primary"
+                                                            data-loading-text="Đang tải..."
+                                                            id="button-review"
+                                                            type="button">Tiếp tục
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</div>
+
+{{ id|json_script:"id_name" }}
+<script type="text/javascript">
+
+            $('#review').delegate('.pagination a', 'click', function (e) {
+                e.preventDefault();
+                $('#review').fadeOut('slow');
+                $('#review').load(this.href);
+                $('#review').fadeIn('slow');
+            });
+
+            $(".info-des-detail ul li a").click(function(){
+                $(".info-des-detail ul li").removeClass("active");
+                $(this).parents("li").addClass("active");
+
+                var id = $(this).attr("href");
+                $(".info-des-detail .tab-content .tab-pane").removeClass("active");
+                $(id).addClass("active");
+            })
+            var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
+            const id_sp = JSON.parse(document.getElementById('id_name').textContent);
+<!--            console.log($("#form-review").serialize())-->
+            $('#button-review').on('click', function () {
+                $.ajax({
+                    url       : '/danhgia/?id='+id_sp,
+                    type      : 'post',
+                    dataType  : 'json',
+
+                    headers:{"X-CSRFToken": $crf_token},
+                    data      : $("#form-review").serialize(),
+                    beforeSend: function () {
+<!--                        $('#button-review').button('loading');-->
+                    },
+                    complete  : function () {
+<!--                        $('#button-review').button('reset');-->
+                    },
+                    success   : function (json) {
+                        $('.alert-success, .alert-danger').remove();
+                        if (json['error']) {
+                            $('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+                        }
+                        if (json['success']) {
+                            $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                            $('input[name=\'name\']').val('');
+                            $('textarea[name=\'text\']').val('');
+                            $('input[name=\'rating\']:checked').prop('checked', false);
+                        }
+                        console.log('test');
+<!--                        #location.reload();-->
+                        document.getElementById("alert_log").innerHTML = '<div class="alert alert-success"><i class="fa fa-check-circle"></i> Cảm ơn! Đánh giá của bạn đã được đăng, vui lòng tải lại trang để thấy thông tin</div>';
+                    }
+                });
+                $(window).on('resize', function() {
+
+			// Modal reposition when the window is resized
+			$('.modal.centered:visible').each(iot.centerModal);
+
+			// Check for Main contents scrollbar visibility and set right position for FAB button
+			iot.positionFab();
+		});
+
+            });
+
+ $('.autoplay').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+
+</script>
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

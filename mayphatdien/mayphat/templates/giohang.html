@@ -1,0 +1,152 @@
+{% extends "header1.html" %}
+{% block detail2 %}
+{% load static %}
+
+<section class="content-home">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
+            <li><a href="/giohang/">Giỏ hàng</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12" id="content">
+                <form enctype="multipart/form-data" method="post">
+                    <div class="table-responsive table-cart-content">
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                            <tr>
+                                <td class="text-center"><strong>Ảnh</strong></td>
+                                <td class="text-center"><strong>Sản phẩm</strong></td>
+                                <td class="text-center"><strong>Đơn giá</strong></td>
+                                <td class="text-center"><strong>Số lượng</strong></td>
+                                <td class="text-center"><strong>Tổng</strong></td>
+                                <td class="text-center"><strong>Xóa</strong></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% firstof as sum_total %}
+                            {% for hang in giohang %}
+                            <tr id="tr{{hang.id}}">
+                                <td class="text-center">
+                                    <img src="/{{ hang.category_image }}" width="100">
+                                </td>
+                                <td class="text-left">
+                                    <a href="/sanpham/{{hang.slug}}/">{{ hang.category_name }}</a>
+                                </td>
+                                <td class="text-right" id="td{{hang.id}}">{{hang.price}}</td>
+                                <td class="text-left">
+                                    <div class="input-group btn-block">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-primary" data-toggle="tooltip" onclick="remove('3','{{hang.id}}');"
+                                                    title="" type="button">-</button>
+                                        </span>
+                                        <input class="form-control" id="{{hang.id}}" name="{{hang.id}}" size="1"
+                                               type="text" value="{{ hang.total}}">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" data-original-title="Cập nhật" data-toggle="tooltip" onclick="remove('2','{{hang.id}}');"
+                                                    title="" type="button">+</i></button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="text-right" id="sum{{hang.id}}">{{ hang.total_price}}</td>
+                                <td class="text-center">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger" data-original-title="Xóa" data-toggle="tooltip" onclick="remove('1','{{hang.id}}');"
+                                            title="" type="button"><i
+                                            class="fa fa-times-circle"></i></button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-sm-12">
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <table class="table table-bordered table-responsive">
+                            <tbody>
+                            <tr>
+                                <td class="text-right">Thành tiền:</td>
+                                <td class="text-right"><strong id="total1">{{sum_price}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Tổng số:</td>
+                                <td class="text-right"><strong id="total2">{{sum_price}}</strong></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6 col_button_shopping">
+                                <a class="btn btn-default pull-left button_shopping" href="/">Tiếp
+                                    tục mua hàng</a>
+                            </div>
+                            <div class="col-sm-6 col-xs-6 col_button_checkout">
+                                <a class="btn btn-primary pull-right button_checkout"
+                                   href="/dathang/">Tiến hành thanh toán</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    function remove(key,pid){
+
+    var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+    if (key === '1') {
+        datap=JSON.stringify({'remove':pid})
+    }
+    if (key ==='2') {
+        datap=JSON.stringify({'inc':pid})
+    }
+    if (key === '3') {
+        datap=JSON.stringify({'desc':pid})
+    }
+    $.ajax({
+	    url: '/updategiohang/',
+	    contentType: 'application/json',
+		type: 'post',
+		dataType: 'json',
+		headers:{
+        "X-CSRFToken": csrftoken
+        },
+		data:datap,
+		success: function(response){
+		var data = $.parseJSON(response);
+        if (key === '1') {
+            $('#tr'+pid).remove();
+            document.getElementById('total1').firstChild.data=data
+            document.getElementById('total2').firstChild.data=data
+            gotoCart('0')
+            return
+           }
+        if (key ==='2') {
+            $('#'+pid).val(data);
+        }
+        if (key === '3') {
+            $('#'+pid).val(data);
+        }
+
+        document.getElementById('total1').firstChild.data = parseInt(document.getElementById ( "total1").innerText) +(parseInt(document.getElementById ( "td"+pid ).innerText) * data) - parseInt(document.getElementById ("sum"+pid).innerText);
+        document.getElementById('total2').firstChild.data = parseInt(document.getElementById ( "total2").innerText) +(parseInt(document.getElementById ( "td"+pid ).innerText) * data) - parseInt(document.getElementById ("sum"+pid).innerText);
+        document.getElementById('sum'+pid).firstChild.data = parseInt(document.getElementById ( "td"+pid ).innerText) * data;
+        gotoCart('0')
+		}
+	})
+
+}
+
+</script>
+
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

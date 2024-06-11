@@ -1,0 +1,236 @@
+{% load static %}
+{% load define_acction %}
+{% get_setting as setting %}
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/validationEngine.jquery.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/woocommerce-layout.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/woocommerce-smallscreen.css'%}"
+          media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/woocommerce.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/postratings-css.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/yith_wcas_ajax_search.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/colorbox.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/prettyPhoto.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/jquery.selectBox.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/style.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/font-awesome.min.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/default.min.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/slick.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/style_2.css'%}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/custom-responsive.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/mega-menu.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/tinyscrollbar.css'%}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'mayphat/css/stylesheet.css'%}">
+    <script type="text/javascript" src="{% static 'mayphat/js/cart.js'%}"></script>
+    <script type="text/javascript" src="{% static 'mayphat/js/jquery-3.3.1.min.js'%}"></script>
+
+</head>
+<body class="common-home home blog">
+<header class="header"
+        style="background-image: url(&#39;https://mayphatdienbp.com/image/cache/catalog/baner/bg-header-nk-v3-0x0.jpg&#39;)">
+    <div class="top_bar" id="top_bar">
+        <div class="container">
+            <div>
+                <ul>
+                    <li>
+                        Điện thoại: <a>{{setting.number_phone}}</a>
+                    </li>
+                    <li>
+                        Email: <a>{{setting.email}}</a>
+                    </li>
+                </ul>
+                <style>
+
+                    .nav-icon-cart-login {
+<!--                        background: url(/static/logo/cart.png) no-repeat center center;-->
+
+                     background-size: 30px auto;
+
+                     float: right;
+                     color:red;
+                    }
+
+
+                </style>
+                {% if user.is_authenticated %}
+
+                <a class="nav-icon-cart-login btn-sm btn-danger" href="/logout/" target="_self">Logout</a>
+                <a class="nav-icon-cart-login btn-sm btn-success" href="javascript:void(0)" target="_self">{{user.get_username}}</a>
+
+                {% else %}
+                <a class="nav-icon-cart-login btn-sm btn-danger" href="/login/" target="_self">Login</a>
+                {% endif %}
+            </div>
+
+
+        </div>
+    </div>
+    <div class="cont-header">
+        <div class="container">
+            <div class="logo-header col-xs-12 col-md-3 col-sm-3 col-xs-12">
+                <a title="Máy phát điện" href="/" class="header_logo">
+                    <img src="{% static 'logo/logo-phat-dien.png'%}">
+                </a>
+            </div>
+            <div class="slogan_header col-xs-12 col-md-9 col-sm-9">
+                <div class="ser_slogan">
+                    <h1> Máy phát điện BP </h1>
+                    <div class="des">
+                        <p style="text-align: center;">
+                            <strong>
+                                <span style="color: #e03e2d; font-size: 16pt;">CHUYÊN CUNG CẤP - CHO THUÊ - SỬA CHỮA - BẢO TRÌ MÁY PHÁT ĐIỆN</span>
+                            </strong>
+                            <br>
+                            <span style="font-size: 16pt;">
+                <span style="color: #3598db;">
+                    <strong>Liên Hệ:</strong>
+                </span>
+                <span style="color: #e03e2d;">
+                    <strong> {{setting.number_phone}}</strong>
+                </span>
+            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="alert_giohang"></p>
+    <div class="menu-header">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-top">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="nav-top">
+                    <div class="menu-menu-chinh-container">
+                        <ul id="menu_main" class="menu">
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-0">
+                                <a href="/phatdienthue/" target="_self">
+                                    Cho thuê máy phát điện
+                                    <span class="fa fa-angle-down hidden-lg hidden-md"></span>
+                                </a>
+
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1">
+                                <a href="/" target="_self">
+                                    Mua bán máy phát điện
+                                    <span class="fa fa-angle-down hidden-lg hidden-md"></span>
+                                </a>
+                                <ul class="sub-menu level1">
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-10">
+                                        <a href="/phatdiencu/" target="_self">
+                                            MÁY PHÁT ĐIỆN CŨ</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-11">
+                                        <a href="/phatdienmoi/" target="_self">
+                                            MÁY PHÁT ĐIỆN MỚI</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2">
+                                <a href="/repair/" target="_self">
+                                    Sửa chữa bảo trì</a></li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-4">
+                                <a href="/rental/" target="_self">
+                                    Chính sách cho thuê</a></li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5">
+                                <a href="/transport/" target="_self">
+                                    Quy Trình Vận chuyển</a></li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-6">
+                                <a href="/contact/" target="_self">
+                                    Liên hệ</a></li>
+                            <li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-6">
+                                <a href="/timkiem/" target="_self">
+                                    Tìm kiếm đơn hàng</a></li>
+                            <li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="cart">
+                <style>
+                   .menu-header .container {
+                    position: relative
+                   }
+
+                   .menu-header .container .cart {
+                    position: absolute;
+    right: 15px;
+    top: 0;
+                   }
+                        .nav-icon-cart-custom {
+                            background: url(/static/logo/cart.png) no-repeat center center;
+                            background-size: 35px auto;
+                                height: 35px;
+                         width: 35px;
+
+                            float:right;
+                        }
+                        .menu-header .container .cart .num {
+                            position: absolute;
+                            right: 0;
+                            bottom: 16;
+                            font-size: 16px;
+                            color: #ff0000
+                        }
+
+                </style>
+
+                <a class="nav-icon-cart-custom" href="/giohang/" target="_self"></a>
+                <span class="num" id="cart-item">0</span></li>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="content-home">
+    <div class="container">
+        <div class="row">
+            <div id="content" class="col-sm-12 col-xs-12 col-md-9 col-md-push-3 content-top-right">
+                <div id="carousel-slider-home-0" class="carousel-slider-home carousel slide " data-ride="carousel">
+                    {% block slide %}
+                    {% endblock %}
+
+                </div>
+            </div>
+            <div class="sidebar-home col-sm-12 col-xs-12 col-md-3 sidebar sidebar-home clearfix col-md-pull-9">
+                <aside id="column-left" class="left-column compliance">
+                    <div class="menu-sidebar " id="product_category-1">
+                        <h6>Danh mục</h6>
+                        <div class="menu-linh-kien-dien-tu-container">
+                            <ul id="slectmenu-1" class="menusanpham">
+                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380 ">
+                                    <a href="/phatdienthue/">MÁY PHÁT ĐIỆN CHO
+                                        THUÊ</a>
+                                </li>
+                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380 ">
+                                    <a href="/phatdiencu/">MÁY PHÁT ĐIỆN CŨ</a>
+                                </li>
+                                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380 ">
+                                    <a href="/phatdienmoi/">MÁY PHÁT ĐIỆN MỚI</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+
+{% block detail %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+

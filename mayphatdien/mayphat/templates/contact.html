@@ -1,0 +1,54 @@
+{% extends "header1.html" %}
+{% block detail_contact %}
+{% load static %}
+
+<section class="content-home">
+    <div class="container">
+        <div class="row">
+            <div class="content-top">
+                <div id="content" class="col-sm-12 col-xs-12 col-md-9 col-md-push-3 news-detail-page">
+                    <div class="title-cate-all">
+                        <div class="pos-link">
+                            <div id="crumbs" class="breadcrumb">
+                                <span>
+                                            <a class="crumbs-home" href="/">
+                                                <i class="fa fa-home"></i> Trang chủ</a>
+                                        </span>
+                                <i class="fa fa-angle-double-right"></i>
+                                <span class="current">Liên hệ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-news-detail-page">
+                        <h1 class="single_title">Liên hệ</h1>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.9174224545663!2d108.17523835022938!3d16.069774388826005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218e2c45d38f3%3A0x5b9e7776cfa10f2d!2zMjAgTeG6uSBIaeG7gW4sIFRoYW5oIEtow6ogVMOieSwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1664952830453!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="post_page"><p><strong>Địa chỉ:</strong> số 34,Đường Hoàng Thị Loan , phường Hòa Minh, quân Liên Chiểu , thành phố Đà Nẵng<br>
+                            Kho hàng: 20 Mẹ Hiền, phường Thanh Khê Tây, quận Thanh Khê , thành phố Đà Nẵng</p>
+                            <p><strong>Điện thoại:</strong> 0793697324</p>
+                            <p><strong>Email:</strong> dinhhuan@gmail.com</p></div>
+                    </div>
+                </div>
+                <div class="sidebar-home col-sm-12 col-xs-12 col-md-3 sidebar sidebar-home clearfix col-md-pull-9">
+                    <aside id="column-left" class="left-column compliance">
+                        <div class="menu-sidebar " id="news_category-0">
+                            <h6>Danh mục tin tức </h6>
+                            <div class="menu-linh-kien-dien-tu-container">
+                                <ul id="news_slectmenu-0" class="menusanpham">
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2380">
+                                        <a href="">Máy phát điện db</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,65 @@
+.top_bar ul{
+	display:block;
+	float: left;
+}
+.top_bar ul li{
+	display:inline-block;
+    margin-right:10px;
+
+}
+.header{
+	background-image:none !important;
+}
+.top_bar{
+    padding: 5px 0;
+    background: #056838;
+}
+.top_bar ul li,
+.top_bar ul li a{
+	color:#fff;
+}
+
+@media (min-width:992px){
+	.ser_slogan h1{
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+    color:#056838;
+        font-family: arial, sans-serif;
+            font-weight:bold;
+    }
+}
+@media (max-width:991px){
+	.logo-header{
+    	width:25%;
+    }
+    .ser_slogan h1{
+    	text-align: center;
+        font-size: 25px;
+        text-transform: uppercase;
+        color:#056838;
+        font-family: arial, sans-serif;
+        font-weight:bold;
+    }
+} 
+@media (max-width:767px){
+.logo-header{
+    	width:100%;
+    }
+    .ser_slogan h1{
+    	font-size:20px;
+    }
+    .ser_slogan .des span{
+    	font-size:12pt !important;
+    }
+}  
+@media (min-width:992px){
+	.logo-header img{
+    	width:70%;
+    }
+}
+@media (max-width:991px){
+	.logo-header img{
+    	width:50%;
+    }
+}

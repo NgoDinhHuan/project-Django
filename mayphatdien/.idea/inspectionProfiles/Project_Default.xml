@@ -1,0 +1,33 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="mayphat" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="shopcomputer.home.admin.home" />
+          <option value="admin_thumbnails" />
+          <option value="mayphatdien.User.urls.User" />
+          <option value="mayphatdien.mayphatdien.urls.User" />
+          <option value="mayphatdien.mayphat.templatetags.define_acction.mayphat" />
+          <option value="api.views.tutorials" />
+          <option value="mayphatdien.mayphat.views.CartSerializer" />
+          <option value="mayphatdien.mayphat.views.cartSerializer" />
+          <option value="mayphatdien.mayphat.views.Cart" />
+          <option value="mayphatdien.mayphat.views.cart" />
+          <option value="mayphatdien.mayphat.urls.auth_views" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="XmlDuplicatedId" enabled="false" level="ERROR" enabled_by_default="false" />
+  </profile>
+</component>
